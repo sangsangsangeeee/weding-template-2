@@ -1,39 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { WEDDING, TRANSPORT_DATA } from '../constants';
 
-interface TransportItem {
-  title: string;
-  content: string[];
+declare global {
+  interface Window {
+    naver: any;
+  }
 }
-
-const TRANSPORT_DATA: TransportItem[] = [
-  {
-    title: '지하철 (Subway)',
-    content: [
-      '5호선 광나루역 2번 출구',
-      '2호선 강변역 1번 출구',
-      '* 각 역 앞 셔틀버스 정류장에서 호텔 셔틀버스를 이용해주세요.',
-    ],
-  },
-  {
-    title: '셔틀버스 (Shuttle Bus)',
-    content: [
-      '광나루역 2번 출구 맞은편 (10분 간격)',
-      '강변역 1번 출구 앞 (10분 간격)',
-      '호텔 도착 후, 애스톤 하우스 전용 차량으로 환승',
-    ],
-  },
-  {
-    title: '자가용 (Car)',
-    content: [
-      "네비게이션 '그랜드 워커힐 서울' 또는 '애스톤 하우스' 검색",
-      '호텔 주차타워 이용 (주차 확인 도장 발급)',
-      '행사 당일 발렛파킹 서비스가 제공됩니다.',
-    ],
-  },
-];
 
 const Location: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const mapElement = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!mapElement.current || !window.naver || !window.naver.maps) {
+      console.warn('Naver maps SDK is not loaded. Skipping map initialization.');
+      return;
+    }
+
+    const { lat, lng } = WEDDING.mapOptions;
+    const location = new window.naver.maps.LatLng(lat, lng);
+
+    const mapOptions = {
+      center: location,
+      zoom: 16,
+      minZoom: 14,
+      maxZoom: 19,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: window.naver.maps.Position.TOP_RIGHT,
+      },
+    };
+
+    const map = new window.naver.maps.Map(mapElement.current, mapOptions);
+
+    new window.naver.maps.Marker({
+      position: location,
+      map: map,
+    });
+  }, []);
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -45,27 +49,13 @@ const Location: React.FC = () => {
         <h2 className='text-xs font-bold tracking-[0.4em] text-gray-400 uppercase border-l-2 border-white pl-4 mb-8'>
           오시는 길
         </h2>
-        <h3 className='text-2xl font-cinematic mb-2 text-white'>그랜드 워커힐 서울</h3>
-        <p className='text-sm text-gray-400 font-light mb-8'>애스톤 하우스 (Aston House)</p>
+        <h3 className='text-2xl font-cinematic mb-2 text-white'>{WEDDING.venueName}</h3>
+        <p className='text-sm text-gray-400 font-light mb-8'>{WEDDING.venueDetail}</p>
       </div>
 
-      {/* Dark Grayscale Map Container */}
+      {/* Naver Map Container */}
       <div className='w-full h-[400px] bg-[#222222] relative overflow-hidden mb-16 border-y border-[#333]'>
-        {/* CSS Filter for True Grayscale Dark Mode */}
-        <iframe
-          title='Wedding Location'
-          width='100%'
-          height='100%'
-          frameBorder='0'
-          scrolling='no'
-          marginHeight={0}
-          marginWidth={0}
-          style={{ filter: 'grayscale(100%) invert(100%) contrast(1.1) brightness(0.8)' }}
-          src='https://maps.google.com/maps?q=Grand+Walkerhill+Seoul&t=&z=15&ie=UTF8&iwloc=&output=embed'
-        ></iframe>
-
-        {/* Map Overlay to reduce interactivity issues and ensure dark feel */}
-        <div className='absolute inset-0 pointer-events-none bg-black/10 mix-blend-overlay'></div>
+        <div ref={mapElement} className='w-full h-full' />
       </div>
 
       {/* Accordion Directions */}

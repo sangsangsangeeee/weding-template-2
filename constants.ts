@@ -4,6 +4,12 @@ export const WEDDING = {
   date: '2026.06.07',
   time: '일요일 오후 03:00',
   venue: '서울여성플라자 피움 서울, 국제회의장',
+  venueName: '서울여성플라자 피움 서울',
+  venueDetail: '국제회의장',
+  mapOptions: {
+    lat: 37.51137187820746, // 서울특별시 동작구 여의대방로54길 18 위도
+    lng: 126.92713661961623, // 서울특별시 동작구 여의대방로54길 18 경도
+  },
   greeting: `햇살이 가장 예쁜 6월에 
 저희가 사랑의 결실을 맺게 되었습니다.
 
@@ -37,4 +43,36 @@ export const GALLERY_PHOTOS = [
   { id: 8, url: gallery8, caption: 'Scene #08' },
   { id: 9, url: gallery9, caption: 'Scene #09' },
   { id: 10, url: gallery10, caption: 'Scene #10' },
+];
+
+export interface TransportItem {
+  title: string;
+  content: string[];
+}
+
+export const TRANSPORT_DATA: TransportItem[] = [
+  {
+    title: '지하철 (Subway)',
+    content: [
+      '5호선 광나루역 2번 출구',
+      '2호선 강변역 1번 출구',
+      '* 각 역 앞 셔틀버스 정류장에서 호텔 셔틀버스를 이용해주세요.',
+    ],
+  },
+  {
+    title: '셔틀버스 (Shuttle Bus)',
+    content: [
+      '광나루역 2번 출구 맞은편 (10분 간격)',
+      '강변역 1번 출구 앞 (10분 간격)',
+      '호텔 도착 후, 애스톤 하우스 전용 차량으로 환승',
+    ],
+  },
+  {
+    title: '자가용 (Car)',
+    content: [
+      "네비게이션 '그랜드 워커힐 서울' 또는 '애스톤 하우스' 검색",
+      '호텔 주차타워 이용 (주차 확인 도장 발급)',
+      '행사 당일 발렛파킹 서비스가 제공됩니다.',
+    ],
+  },
 ];
