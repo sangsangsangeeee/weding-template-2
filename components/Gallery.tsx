@@ -80,7 +80,7 @@ const Gallery: React.FC = () => {
       {/* Lightbox Modal */}
       {selectedPhoto && (
         <div
-          className='fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4 transition-opacity duration-300 backdrop-blur-sm'
+          className='fixed inset-0 z-[9999] bg-black/50 flex items-center justify-center p-4 transition-opacity duration-300 backdrop-blur-sm'
           onClick={closeLightbox}
         >
           <button

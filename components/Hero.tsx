@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
             </h2>
 
             <div className='space-y-12 pl-2 md:pl-0'>
-              <div className='pt-8 flex items-center gap-4 opacity-80'>
+              <div className='flex items-center gap-4 opacity-80'>
                 <div className='h-[1px] w-12 bg-white'></div>
                 <span className='font-cinematic italic text-lg'>The Beginning</span>
               </div>

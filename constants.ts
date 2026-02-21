@@ -15,31 +15,26 @@ export const WEDDING = {
 감사하겠습니다.`,
 };
 
-// Using placeholder images that fit the "Cinematic/Moody" vibe
+import gallery1 from './assets/gallery-1.jpeg';
+import gallery2 from './assets/gallery-2.jpeg';
+import gallery3 from './assets/gallery-3.jpeg';
+import gallery4 from './assets/gallery-4.jpeg';
+import gallery5 from './assets/gallery-5.jpeg';
+import gallery6 from './assets/gallery-6.jpeg';
+import gallery7 from './assets/gallery-7.jpeg';
+import gallery8 from './assets/gallery-8.jpeg';
+import gallery9 from './assets/gallery-9.jpeg';
+import gallery10 from './assets/gallery-10.jpeg';
+
 export const GALLERY_PHOTOS = [
-  {
-    id: 1,
-    url: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop',
-    caption: 'Scene #01',
-  },
-  {
-    id: 2,
-    url: 'https://images.unsplash.com/photo-1511285560982-1356c11d4606?q=80&w=2076&auto=format&fit=crop',
-    caption: 'Scene #02',
-  },
-  {
-    id: 3,
-    url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1974&auto=format&fit=crop',
-    caption: 'Scene #03',
-  },
-  {
-    id: 4,
-    url: 'https://images.unsplash.com/photo-1520854221256-17451cc330e7?q=80&w=1974&auto=format&fit=crop',
-    caption: 'Scene #04',
-  },
-  {
-    id: 5,
-    url: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=2070&auto=format&fit=crop',
-    caption: '피날레',
-  },
+  { id: 1, url: gallery1, caption: 'Scene #01' },
+  { id: 2, url: gallery2, caption: 'Scene #02' },
+  { id: 3, url: gallery3, caption: 'Scene #03' },
+  { id: 4, url: gallery4, caption: 'Scene #04' },
+  { id: 5, url: gallery5, caption: 'Scene #05' },
+  { id: 6, url: gallery6, caption: 'Scene #06' },
+  { id: 7, url: gallery7, caption: 'Scene #07' },
+  { id: 8, url: gallery8, caption: 'Scene #08' },
+  { id: 9, url: gallery9, caption: 'Scene #09' },
+  { id: 10, url: gallery10, caption: 'Scene #10' },
 ];
