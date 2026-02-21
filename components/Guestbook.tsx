@@ -1,20 +1,7 @@
 import React, { useState } from 'react';
-
-interface AccountInfo {
-  bank: string;
-  accountNumber: string;
-  owner: string;
-}
-
-const GROOM_ACCOUNTS: AccountInfo[] = [
-  { bank: '신한은행', accountNumber: '110-123-456789', owner: '이재현' },
-  { bank: '국민은행', accountNumber: '000-00-0000-000', owner: '아버지 이몽룡' },
-];
-
-const BRIDE_ACCOUNTS: AccountInfo[] = [
-  { bank: '우리은행', accountNumber: '1002-987-654321', owner: '김민지' },
-  { bank: '하나은행', accountNumber: '123-456789-00107', owner: '어머니 성춘향' },
-];
+import { GROOM_ACCOUNTS, BRIDE_ACCOUNTS, type AccountInfo } from '../constants';
+import crop1 from '../assets/crop1.jpeg';
+import crop2 from '../assets/crop2.jpeg';
 
 const Guestbook: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'groom' | 'bride' | null>(null);
@@ -100,8 +87,8 @@ const Guestbook: React.FC = () => {
             ${activeTab === 'groom' ? 'scale-110' : 'scale-100'}
           `}
             style={{
-              backgroundImage:
-                'url(https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop)',
+              backgroundImage: `url(${crop1})`,
+              backgroundPositionY: '26%'
             }}
           ></span>
 
@@ -145,8 +132,8 @@ const Guestbook: React.FC = () => {
             ${activeTab === 'bride' ? 'scale-110' : 'scale-100'}
           `}
             style={{
-              backgroundImage:
-                'url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop)',
+              backgroundImage: `url(${crop2})`,
+              backgroundPositionY: '33%'
             }}
           ></span>
 

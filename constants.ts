@@ -45,6 +45,22 @@ export const GALLERY_PHOTOS = [
   { id: 10, url: gallery10, caption: 'Scene #10' },
 ];
 
+export interface AccountInfo {
+  bank: string;
+  accountNumber: string;
+  owner: string;
+}
+
+export const GROOM_ACCOUNTS: AccountInfo[] = [
+  { bank: '신한은행', accountNumber: '110-123-456789', owner: '이재현' },
+  { bank: '국민은행', accountNumber: '000-00-0000-000', owner: '아버지 이몽룡' },
+];
+
+export const BRIDE_ACCOUNTS: AccountInfo[] = [
+  { bank: '우리은행', accountNumber: '1002-987-654321', owner: '김민지' },
+  { bank: '하나은행', accountNumber: '123-456789-00107', owner: '어머니 성춘향' },
+];
+
 export interface TransportItem {
   title: string;
   content: string[];
