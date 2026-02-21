@@ -1,0 +1,115 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1771690958898,
+  "projectRoot": "/Users/user/Documents/weding-template-2",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "19.2.4",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.4",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "6.2.0",
+        "category": "build"
+      }
+    ],
+    "packageManager": "pnpm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "pnpm build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "pnpm dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "components"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "components": {
+      "path": "components",
+      "purpose": "UI components",
+      "fileCount": 6,
+      "lastAccessed": 1771690958874,
+      "keyFiles": [
+        "Gallery.tsx",
+        "Guestbook.tsx",
+        "Hero.tsx",
+        "Location.tsx",
+        "Synopsis.tsx"
+      ]
+    },
+    "services": {
+      "path": "services",
+      "purpose": "Business logic services",
+      "fileCount": 1,
+      "lastAccessed": 1771690958875,
+      "keyFiles": [
+        "geminiService.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "components/Hero.tsx",
+      "accessCount": 16,
+      "lastAccessed": 1771691672081,
+      "type": "file"
+    },
+    {
+      "path": "components/Timeline.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1771691661358,
+      "type": "file"
+    },
+    {
+      "path": "constants.ts",
+      "accessCount": 3,
+      "lastAccessed": 1771691616443,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
