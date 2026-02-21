@@ -8,17 +8,13 @@
         "name": "JavaScript/TypeScript",
         "version": null,
         "confidence": "high",
-        "markers": [
-          "package.json"
-        ]
+        "markers": ["package.json"]
       },
       {
         "name": "TypeScript",
         "version": null,
         "confidence": "high",
-        "markers": [
-          "tsconfig.json"
-        ]
+        "markers": ["tsconfig.json"]
       }
     ],
     "frameworks": [
@@ -61,9 +57,7 @@
   "structure": {
     "isMonorepo": false,
     "workspaces": [],
-    "mainDirectories": [
-      "components"
-    ],
+    "mainDirectories": ["components"],
     "gitBranches": null
   },
   "customNotes": [],
@@ -73,29 +67,21 @@
       "purpose": "UI components",
       "fileCount": 6,
       "lastAccessed": 1771690958874,
-      "keyFiles": [
-        "Gallery.tsx",
-        "Guestbook.tsx",
-        "Hero.tsx",
-        "Location.tsx",
-        "Synopsis.tsx"
-      ]
+      "keyFiles": ["Gallery.tsx", "Guestbook.tsx", "Hero.tsx", "Location.tsx", "Synopsis.tsx"]
     },
     "services": {
       "path": "services",
       "purpose": "Business logic services",
       "fileCount": 1,
       "lastAccessed": 1771690958875,
-      "keyFiles": [
-        "geminiService.ts"
-      ]
+      "keyFiles": ["geminiService.ts"]
     }
   },
   "hotPaths": [
     {
       "path": "components/Hero.tsx",
-      "accessCount": 16,
-      "lastAccessed": 1771691672081,
+      "accessCount": 17,
+      "lastAccessed": 1771691777360,
       "type": "file"
     },
     {

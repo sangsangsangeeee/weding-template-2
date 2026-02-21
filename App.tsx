@@ -8,15 +8,15 @@ import Guestbook from './components/Guestbook';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#111111] text-white selection:bg-white selection:text-black">
+    <div className='min-h-screen bg-[#111111] text-white selection:bg-white selection:text-black'>
       <Hero />
-      <div className="relative z-10 bg-[#111111] shadow-[0_-20px_50px_rgba(0,0,0,1)]">
+      <div className='relative z-10 bg-[#111111] shadow-[0_-20px_50px_rgba(0,0,0,1)]'>
         <Gallery />
         <Timeline />
         <Location />
         <Guestbook />
-        
-        <footer className="py-12 text-center text-white/20 text-[10px] uppercase tracking-[0.3em]">
+
+        <footer className='py-12 text-center text-white/20 text-[10px] uppercase tracking-[0.3em]'>
           <p>© 2026 The Scene. All Rights Reserved.</p>
         </footer>
       </div>

@@ -1,8 +1,11 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI } from '@google/genai';
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-export const generateCinematicWish = async (name: string, relationship: string): Promise<string> => {
+export const generateCinematicWish = async (
+  name: string,
+  relationship: string
+): Promise<string> => {
   try {
     const prompt = `
       Act as a Hollywood screenwriter but write in Korean.
@@ -18,9 +21,9 @@ export const generateCinematicWish = async (name: string, relationship: string):
       contents: prompt,
     });
 
-    return response.text?.trim() || "두 분의 앞날이 영화처럼 아름답기를 바랍니다.";
+    return response.text?.trim() || '두 분의 앞날이 영화처럼 아름답기를 바랍니다.';
   } catch (error) {
-    console.error("Error generating wish:", error);
-    return "영원히 빛나는 사랑을 기원합니다.";
+    console.error('Error generating wish:', error);
+    return '영원히 빛나는 사랑을 기원합니다.';
   }
 };
