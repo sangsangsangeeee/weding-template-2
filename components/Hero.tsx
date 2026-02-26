@@ -1,5 +1,6 @@
 import React from 'react';
 import { WEDDING } from '../constants';
+import heroImage from '../assets/hero.jpeg';
 
 const Hero: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Hero: React.FC = () => {
       <div className='sticky top-0 h-screen w-full overflow-hidden'>
         <div className='absolute inset-0 bg-black/40 z-10' /> {/* Overlay for text readability */}
         <img
-          src='/assets/hero.jpeg'
+          src={heroImage}
           className='h-full w-full object-cover grayscale-[30%] contrast-125'
           alt='Wedding hero'
         />
