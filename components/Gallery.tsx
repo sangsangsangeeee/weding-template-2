@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GALLERY_PHOTOS } from '../constants';
 
 const Gallery: React.FC = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<{ url: string; caption?: string } | null>(
     null
   );
+  const [fixedHeight, setFixedHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    // 최초 로드 시 높이를 고정하여 카카오 인앱 브라우저 주소창 변화에 영향받지 않도록 함
+    setFixedHeight(window.innerHeight);
+  }, []);
+
+  const heightStyle = fixedHeight ? `${fixedHeight}px` : '100svh';
 
   const openLightbox = (photo: (typeof GALLERY_PHOTOS)[0]) => {
     setSelectedPhoto({ url: photo.url, caption: photo.caption });
@@ -33,8 +41,8 @@ const Gallery: React.FC = () => {
           <div
             key={photo.id}
             onClick={() => openLightbox(photo)}
-            className='sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden cursor-zoom-in group'
-            style={{ zIndex: index + 1 }}
+            className='sticky top-0 w-full flex items-center justify-center overflow-hidden cursor-zoom-in group transition-[height] duration-300 ease-out'
+            style={{ zIndex: index + 1, height: heightStyle }}
           >
             {/* Image Container with Parallax-like Overlay */}
             <div className='absolute inset-0 bg-black transition-transform duration-1000 ease-out group-hover:scale-105'>
@@ -105,7 +113,8 @@ const Gallery: React.FC = () => {
             <img
               src={selectedPhoto.url}
               alt={selectedPhoto.caption}
-              className='max-h-[85vh] max-w-full object-contain shadow-2xl'
+              className='max-w-full object-contain shadow-2xl'
+              style={{ maxHeight: fixedHeight ? `${fixedHeight * 0.85}px` : '85svh' }}
             />
             {selectedPhoto.caption && (
               <div className='mt-6 text-center'>
