@@ -3,34 +3,29 @@ import { WEDDING } from '../constants';
 import heroImage from '../assets/hero.jpeg';
 
 const Hero: React.FC = () => {
-  const viewportRef = React.useRef<HTMLDivElement>(null);
+  const [fixedHeight, setFixedHeight] = React.useState<number | null>(null);
 
   React.useEffect(() => {
-    const setVh = () => {
-      const vh = window.innerHeight;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-    setVh();
-    window.addEventListener('resize', setVh);
-    return () => window.removeEventListener('resize', setVh);
+    // 최초 로드 시 높이를 한 번만 고정하여 주소창 변화에 반응하지 않음
+    setFixedHeight(window.innerHeight);
   }, []);
+
+  const heightStyle = fixedHeight ? `${fixedHeight}px` : '100svh';
 
   return (
     <div className='relative w-full bg-[#111111]'>
       {/*
         Sticky Video Background
         It stays fixed at the top while the content (Title -> Synopsis) scrolls over it.
-        z-index is 0 to stay behind the content but we need to ensure the App background handles layering.
       */}
       <div
-        ref={viewportRef}
-        className='sticky top-0 w-full overflow-hidden'
-        style={{ height: 'var(--vh, 100svh)' }}
+        className='sticky top-0 w-full overflow-hidden transition-[height] duration-300 ease-out'
+        style={{ height: heightStyle }}
       >
-        <div className='absolute inset-0 bg-black/40 z-10' /> {/* Overlay for text readability */}
+        <div className='absolute inset-0 bg-black/40 z-10' />
         <img
           src={heroImage}
-          className='h-full w-full object-cover grayscale-[30%] contrast-125'
+          className='h-full w-full object-cover grayscale-[30%] contrast-125 transition-transform duration-300 ease-out'
           alt='Wedding hero'
         />
       </div>
@@ -39,9 +34,9 @@ const Hero: React.FC = () => {
         Content Container
         z-index 10 to float above the video.
       */}
-      <div className='relative z-10' style={{ marginTop: 'calc(var(--vh, 100svh) * -1)' }}>
+      <div className='relative z-10' style={{ marginTop: `-${heightStyle}` }}>
         {/* SCENE 1: Title / Poster */}
-        <section className='w-full flex flex-col items-center justify-between py-20 animate-fade-in-up' style={{ height: 'var(--vh, 100svh)' }}>
+        <section className='w-full flex flex-col items-center justify-between py-20 animate-fade-in-up transition-[height] duration-300 ease-out' style={{ height: heightStyle }}>
           <div className='mt-10 tracking-[0.3em] text-xs font-light uppercase opacity-80 text-white'>
             {WEDDING.heroSubtitle}
           </div>
@@ -86,7 +81,7 @@ const Hero: React.FC = () => {
 
         {/* SCENE 2: Synopsis */}
         {/* Gradient background creates a seamless transition to the solid black footer/gallery */}
-        <section className='flex flex-col justify-center items-center px-6 py-20 bg-gradient-to-b from-transparent via-black/80 to-[#111111]' style={{ minHeight: 'calc(var(--vh, 100svh) * 0.9)' }}>
+        <section className='flex flex-col justify-center items-center px-6 py-20 bg-gradient-to-b from-transparent via-black/80 to-[#111111]' style={{ minHeight: `calc(${heightStyle} * 0.9)` }}>
           <div className='max-w-2xl mx-auto w-full text-white'>
             <h2 className='text-xs font-bold tracking-[0.4em] text-gray-400 mb-12 uppercase border-l-2 border-white pl-4 opacity-80'>
               시놉시스
