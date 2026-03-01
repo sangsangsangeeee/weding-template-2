@@ -53,12 +53,12 @@ export interface AccountInfo {
 
 export const GROOM_ACCOUNTS: AccountInfo[] = [
   { bank: '우리은행', accountNumber: '1002-160-707015', owner: '남상이' },
-  { bank: 'oo은행', accountNumber: '000-00-0000-000', owner: '신랑 어머니 이일순' },
+  { bank: 'oo은행', accountNumber: '000-00-0000-000', owner: '이일순' },
 ];
 
 export const BRIDE_ACCOUNTS: AccountInfo[] = [
   { bank: '신한은행', accountNumber: '110-478-330600', owner: '김현아' },
-  { bank: '국민은행', accountNumber: '639002-01-132410', owner: '신부 어머니 임민자' },
+  { bank: '국민은행', accountNumber: '639002-01-132410', owner: '임민자' },
 ];
 
 export interface TransportItem {
