@@ -52,13 +52,13 @@ export interface AccountInfo {
 }
 
 export const GROOM_ACCOUNTS: AccountInfo[] = [
-  { bank: '신한은행', accountNumber: '110-123-456789', owner: '이재현' },
-  { bank: '국민은행', accountNumber: '000-00-0000-000', owner: '아버지 이몽룡' },
+  { bank: '우리은행', accountNumber: '1002-160-707015', owner: '남상이' },
+  { bank: 'oo은행', accountNumber: '000-00-0000-000', owner: '신랑 어머니 이일순' },
 ];
 
 export const BRIDE_ACCOUNTS: AccountInfo[] = [
-  { bank: '우리은행', accountNumber: '1002-987-654321', owner: '김민지' },
-  { bank: '하나은행', accountNumber: '123-456789-00107', owner: '어머니 성춘향' },
+  { bank: '신한은행', accountNumber: '110-478-330600', owner: '김현아' },
+  { bank: '국민은행', accountNumber: '639002-01-132410', owner: '신부 어머니 임민자' },
 ];
 
 export interface TransportItem {
@@ -69,26 +69,17 @@ export interface TransportItem {
 export const TRANSPORT_DATA: TransportItem[] = [
   {
     title: '지하철 (Subway)',
-    content: [
-      '5호선 광나루역 2번 출구',
-      '2호선 강변역 1번 출구',
-      '* 각 역 앞 셔틀버스 정류장에서 호텔 셔틀버스를 이용해주세요.',
-    ],
+    content: ['1호선 대방역 하차', '3번 출구 좌측 골목 50m 위치'],
   },
   {
-    title: '셔틀버스 (Shuttle Bus)',
-    content: [
-      '광나루역 2번 출구 맞은편 (10분 간격)',
-      '강변역 1번 출구 앞 (10분 간격)',
-      '호텔 도착 후, 애스톤 하우스 전용 차량으로 환승',
-    ],
+    title: '버스 (Bus)',
+    content: ['마을버스: 동작01, 동작05, 동작05-1, 동작08, 동작12, 영등포07, 영등포 10, 영등포 11', '지선: 5531, 5634, 5623, 5633, 6211, 6411', '간선: 150, 163, 360, 361, 461, 505'],
   },
   {
     title: '자가용 (Car)',
     content: [
-      "네비게이션 '그랜드 워커힐 서울' 또는 '애스톤 하우스' 검색",
-      '호텔 주차타워 이용 (주차 확인 도장 발급)',
-      '행사 당일 발렛파킹 서비스가 제공됩니다.',
+      '네비게이션: "서울여성플라자" 또는 "서울시 동작구 여의대방로 54 18"',
+      '지하 주차장 (2시간 무료)',
     ],
   },
 ];
