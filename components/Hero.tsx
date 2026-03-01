@@ -3,14 +3,30 @@ import { WEDDING } from '../constants';
 import heroImage from '../assets/hero.jpeg';
 
 const Hero: React.FC = () => {
+  const viewportRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    setVh();
+    window.addEventListener('resize', setVh);
+    return () => window.removeEventListener('resize', setVh);
+  }, []);
+
   return (
     <div className='relative w-full bg-[#111111]'>
-      {/* 
-        Sticky Video Background 
+      {/*
+        Sticky Video Background
         It stays fixed at the top while the content (Title -> Synopsis) scrolls over it.
         z-index is 0 to stay behind the content but we need to ensure the App background handles layering.
       */}
-      <div className='sticky top-0 h-screen w-full overflow-hidden'>
+      <div
+        ref={viewportRef}
+        className='sticky top-0 w-full overflow-hidden'
+        style={{ height: 'var(--vh, 100svh)' }}
+      >
         <div className='absolute inset-0 bg-black/40 z-10' /> {/* Overlay for text readability */}
         <img
           src={heroImage}
@@ -19,13 +35,13 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      {/* 
-        Content Container 
+      {/*
+        Content Container
         z-index 10 to float above the video.
       */}
-      <div className='relative z-10 -mt-[100vh]'>
+      <div className='relative z-10' style={{ marginTop: 'calc(var(--vh, 100svh) * -1)' }}>
         {/* SCENE 1: Title / Poster */}
-        <section className='h-screen w-full flex flex-col items-center justify-between py-20 animate-fade-in-up'>
+        <section className='w-full flex flex-col items-center justify-between py-20 animate-fade-in-up' style={{ height: 'var(--vh, 100svh)' }}>
           <div className='mt-10 tracking-[0.3em] text-xs font-light uppercase opacity-80 text-white'>
             {WEDDING.heroSubtitle}
           </div>
@@ -70,7 +86,7 @@ const Hero: React.FC = () => {
 
         {/* SCENE 2: Synopsis */}
         {/* Gradient background creates a seamless transition to the solid black footer/gallery */}
-        <section className='min-h-[90vh] flex flex-col justify-center items-center px-6 py-20 bg-gradient-to-b from-transparent via-black/80 to-[#111111]'>
+        <section className='flex flex-col justify-center items-center px-6 py-20 bg-gradient-to-b from-transparent via-black/80 to-[#111111]' style={{ minHeight: 'calc(var(--vh, 100svh) * 0.9)' }}>
           <div className='max-w-2xl mx-auto w-full text-white'>
             <h2 className='text-xs font-bold tracking-[0.4em] text-gray-400 mb-12 uppercase border-l-2 border-white pl-4 opacity-80'>
               시놉시스
