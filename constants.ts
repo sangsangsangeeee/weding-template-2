@@ -53,7 +53,7 @@ export interface AccountInfo {
 
 export const GROOM_ACCOUNTS: AccountInfo[] = [
   { bank: '우리은행', accountNumber: '1002-160-707015', owner: '남상이' },
-  { bank: 'oo은행', accountNumber: '000-00-0000-000', owner: '이일순' },
+  { bank: '경남은행', accountNumber: '513-21-0234141', owner: '이일순' },
 ];
 
 export const BRIDE_ACCOUNTS: AccountInfo[] = [
